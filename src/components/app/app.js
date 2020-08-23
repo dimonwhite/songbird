@@ -1,23 +1,20 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import Header from '@/components/header';
 import CurrentQuestion from '@/components/current-question';
 
 import './app.scss';
 
-export default class App extends Component {
-  state = {
-    score: 0,
-  };
+const App = () => {
+  const [score, setScore] = useState(0);
 
-  render() {
-    const { score } = this.state;
+  return (
+    <>
+      <Header score={score} />
+      <CurrentQuestion />
+      <button className="btn btn-danger" type="button" onClick={() => setScore((prev) => prev + 1)}>Score</button>
+    </>
+  );
+};
 
-    return (
-      <>
-        <Header score={score} />
-        <CurrentQuestion />
-      </>
-    );
-  }
-}
+export default App;

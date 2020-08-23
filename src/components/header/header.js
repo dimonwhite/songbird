@@ -1,20 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './header.scss';
+import Nav from '@/components/nav';
+import logo from './assets/img/logo.svg';
 
-export default class Header extends Component {
-  state = {
-    activeElement: 1,
-  };
+const Header = ({ score }) => (
+  <header className="header container">
+    <div className="header_top">
+      <a href="/" className="logo">
+        <img className="logo_img" alt="SongBird" src={logo.url} />
+      </a>
 
-  render() {
-    const { activeElement } = this.state;
-
-    return (
-      <header className="header">
-        Header
+      <div className="score">
+        Score:
         {' '}
-        {activeElement}
-      </header>
-    );
-  }
-}
+        { score }
+      </div>
+    </div>
+    <Nav />
+  </header>
+);
+
+Header.propTypes = {
+  score: PropTypes.number.isRequired,
+};
+
+export default Header;

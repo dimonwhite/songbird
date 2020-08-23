@@ -60,6 +60,7 @@
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "sortablejs": "1.10.2"
+    "sortablejs": "1.10.2",
+    "prop-types": "^15.7.2"
   }
 }

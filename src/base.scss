@@ -1,5 +1,19 @@
 @import '~normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 html {
   font-size: 20px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #ffffff;
+
+  background-color: #222222;
+}
+
+.container {
+  padding: 0 calc(50% - 28rem);
 }

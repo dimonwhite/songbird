@@ -1,0 +1,33 @@
+.nav {
+  &_list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    &_item {
+      width: calc(100% / 6);
+      padding: 0.5rem;
+
+      text-align: center;
+
+      background-color: #008966;
+
+      transition: 0.5s;
+
+      &:first-child {
+        border-radius: 0.3rem 0 0 0.3rem;
+      }
+
+      &:last-child {
+        border-radius: 0 0.3rem 0.3rem 0;
+      }
+
+      &.active {
+        background-color: #00bc8c;
+      }
+    }
+  }
+}
+

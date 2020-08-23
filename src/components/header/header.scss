@@ -1,5 +1,22 @@
 .header {
-  display: flex;
-  align-items: center;
-  height: 4rem;
+  margin-bottom: 15rem;
+  &_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .logo {
+    &_img {
+      display: block;
+      width: 10rem;
+      height: 2.8rem;
+    }
+  }
+
+  .score {
+    font-size: 1rem;
+    font-weight: 700;
+  }
 }
