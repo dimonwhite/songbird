@@ -1,41 +1,63 @@
 .soundPlayer {
-  display: flex;
-  align-items: center;
+  .rhap {
+    &_container {
+      padding: 0;
 
-  &_btn {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    margin-right: 1rem;
-    padding: 0;
-
-    border-radius: 50%;
-    border: 0.1rem solid #00bc8c;
-    background-color: transparent;
-
-    .sb-soundplayer-icon {
-      width: 0.7rem;
-      height: 0.7rem;
-
-      fill: #00bc8c;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
     }
-  }
 
-  &_progress {
-    flex: 1 0 auto;
-    height: 0.3rem;
+    &_time {
+      color: #ffffff;
+    }
 
-    border-radius: 0.3rem;
-    background-color: #737373;
+    &_controls-section {
+      flex: 0 0 auto;
+      padding-right: 1rem;
+    }
 
-    &_line {
-      height: 0.3rem;
+    &_volume-controls, &_volume-container {
+      flex: 1 0 5rem;
+      width: 5rem;
+    }
 
-      border-radius: 0.3rem;
-      background-color: #00bc8c;
+    &_main-controls-button {
+      margin-left: 0;
+    }
+
+    &_main-controls-button, &_volume-button {
+      color: #008966;
+
+      transition: 0.5s;
+
+      &:hover, &:focus {
+        color: #00bc8c;
+      }
+    }
+
+    &_volume-indicator, &_progress-indicator {
+      background-color: #008966;
+
+      transition: background-color 0.5s !important;
+
+      &:hover, &:focus {
+        background-color: #00bc8c;
+      }
+    }
+
+    &_volume-bar-area, &_progress-container {
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    &_progress-filled {
+      background-color: #008966;
+    }
+
+    &_progress-bar, &_progress-filled {
+      border-radius: 5px;
     }
   }
 }

@@ -42,4 +42,14 @@
     border-top: 0.1rem solid #555555;
     border-bottom: 0.1rem solid #555555;
   }
+
+  .rhap {
+    &_progress-bar {
+      top: -1px;
+    }
+
+    &_controls-section {
+      padding-right: 0;
+    }
+  }
 }

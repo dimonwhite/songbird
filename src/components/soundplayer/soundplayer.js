@@ -24,6 +24,8 @@ const SoundPlayer = (({ src, stop, layout }) => {
         showJumpControls={false}
         showDownloadProgress={false}
         autoPlayAfterSrcChange={false}
+        defaultCurrentTime="00:00"
+        defaultDuration="00:00"
       />
     </div>
   );
