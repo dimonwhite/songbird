@@ -4,8 +4,8 @@ import './header.scss';
 import Nav from '@/components/nav';
 import logo from './assets/img/logo.svg';
 
-const Header = ({ score }) => (
-  <header className="header container">
+const Header = ({ score, genre }) => (
+  <header className="header">
     <div className="header_top">
       <a href="/" className="logo">
         <img className="logo_img" alt="SongBird" src={logo.url} />
@@ -17,12 +17,13 @@ const Header = ({ score }) => (
         { score }
       </div>
     </div>
-    <Nav />
+    <Nav genre={genre} />
   </header>
 );
 
 Header.propTypes = {
   score: PropTypes.number.isRequired,
+  genre: PropTypes.number.isRequired,
 };
 
 export default Header;

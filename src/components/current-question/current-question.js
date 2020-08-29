@@ -1,21 +1,52 @@
-import React, { Component } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import FilmsServices from '@/services/films-services';
+import SoundPlayer from '@/components/soundplayer';
+import { useFilmsContext } from '@/components/films-provider/films-provider';
+import defaultImg from './assets/img/poster.jpg';
 import './current-question.scss';
 
-export default class CurrentQuestion extends Component {
-  state = {
-    descHidden: true,
-  };
+const filmsServices = new FilmsServices();
 
-  render() {
-    const { descHidden } = this.state;
+// eslint-disable-next-line react/prop-types,no-unused-vars
+const CurrentQuestion = () => {
+  const {
+    success,
+    questionFilm: { title, img, soundtrack },
+  } = useFilmsContext();
 
-    return (
-      <div className="question">
-        Question
-        {' '}
-        {descHidden}
+  const [filmImg, setFilmImg] = useState(defaultImg);
+  const [filmTitle, setFilmTitle] = useState('******');
+  const filmSoundtrack = filmsServices.getSoundtrack(soundtrack);
+
+  useEffect(() => {
+    if (success) {
+      filmsServices.getImage(img)
+        .then((src) => {
+          setFilmImg(src);
+        });
+      setFilmTitle(title);
+    } else {
+      setFilmImg(defaultImg);
+      setFilmTitle('******');
+    }
+  }, [success]);
+
+  return (
+    <div className="question">
+      <img src={filmImg} alt={filmTitle} className="question_img" />
+
+      <div className="question_right">
+        <div className="question_title">{filmTitle}</div>
+        <div className="question_sound">
+          <SoundPlayer
+            src={filmSoundtrack}
+            stop={success}
+            layout="horizontal-reverse"
+          />
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default CurrentQuestion;

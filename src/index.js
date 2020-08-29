@@ -4,5 +4,12 @@ import ReactDOM from 'react-dom';
 import './base.scss';
 
 import App from '@/components/app';
+import FilmsProvider from '@/components/films-provider/films-provider';
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+const Main = () => (
+  <FilmsProvider>
+    <App />
+  </FilmsProvider>
+);
+
+ReactDOM.render(<Main />, document.querySelector('#app'));

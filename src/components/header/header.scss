@@ -1,17 +1,17 @@
 .header {
-  margin-bottom: 15rem;
+  margin-bottom: 1.5rem;
   &_top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
   }
 
   .logo {
     &_img {
       display: block;
-      width: 10rem;
-      height: 2.8rem;
+      width: 4rem;
+      height: 4rem;
     }
   }
 

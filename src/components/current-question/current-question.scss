@@ -1,0 +1,33 @@
+.question {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+
+  background-color: #303030;
+  border-radius: 0.3rem;
+
+  &_img {
+    flex: 0 0 auto;
+    width: 10rem;
+    height: 14rem;
+    margin-right: 1.5rem;
+
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+
+  &_right {
+    width: 100%;
+  }
+
+  &_title {
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    border-bottom: 0.1rem solid #555555;
+  }
+}

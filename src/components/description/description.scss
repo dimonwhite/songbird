@@ -1,0 +1,45 @@
+.description {
+  width: 48%;
+  min-height: 15.1rem;
+  padding: 1rem;
+
+  background-color: #303030;
+  border: 1px solid #555555;
+  border-radius: 0.3rem;
+
+  &_top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  &_img {
+    width: 10rem;
+    height: 14rem;
+
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+
+  &_right {
+    width: calc(100% - 11rem);
+  }
+
+  &_title {
+    margin-bottom: 0.5rem;
+
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  &_smallTitle {
+    padding: 0.5rem 0;
+    margin-bottom: 0.6rem;
+
+    font-size: 0.8rem;
+
+    border-top: 0.1rem solid #555555;
+    border-bottom: 0.1rem solid #555555;
+  }
+}
