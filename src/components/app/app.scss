@@ -1,0 +1,37 @@
+@import '@/mixins';
+
+.app_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include media(880px) {
+    flex-wrap: wrap;
+  }
+}
+
+.nextBtn {
+  width: 100%;
+  height: 2rem;
+  margin-bottom: 1rem;
+
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+
+  background-color: #008966;
+  border-radius: 0.3rem;
+  border: 1px solid #555555;
+
+  transition: 0.5s;
+
+  &:focus, &:hover {
+    background-color: #00bc8c;
+  }
+
+  &:disabled {
+    background-color: #303030;
+    cursor: default;
+  }
+}

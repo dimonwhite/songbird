@@ -1,0 +1,22 @@
+.header {
+  margin-bottom: 1.5rem;
+  &_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+
+  .logo {
+    &_img {
+      display: block;
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  .score {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}

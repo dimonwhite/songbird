@@ -1,0 +1,46 @@
+@import '~normalize.css';
+@import './mixins';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 20px;
+  @include minMedia(1930px) {
+    font-size: 1.04vw;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.5;
+
+  background-color: #222222;
+
+  @include media(500px) {
+    font-size: 0.7rem;
+  }
+}
+
+.container {
+  padding: 0 calc(50% - 28rem);
+  margin-bottom: 2rem;
+
+  @include media(1090px) {
+    padding: 0 15px;
+  }
+}
+
+button {
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}

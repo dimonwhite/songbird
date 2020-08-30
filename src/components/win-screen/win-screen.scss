@@ -1,0 +1,47 @@
+@import '@/mixins';
+
+.winScreen {
+  padding: 1.5rem;
+
+  text-align: center;
+
+  background-color: #303030;
+  border-radius: 0.3rem;
+
+  @include media(500px) {
+    padding: 0.8rem;
+  }
+
+  &_title {
+    margin-bottom: 1rem;
+
+    font-size: 2rem;
+    font-weight: 600;
+
+    @include media(500px) {
+      font-size: 1rem;
+    }
+  }
+
+  &_text {
+    margin-bottom: 1rem;
+
+    font-size: 1rem;
+
+    @include media(500px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  &_img {
+    display: inline-block;
+    width: 16rem;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .nextBtn {
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+}

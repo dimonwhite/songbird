@@ -1,0 +1,41 @@
+@import '@/mixins';
+
+.nav {
+  &_list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+
+    list-style: none;
+    border-radius: 0.3rem;
+
+    @include media(800px) {
+      flex-wrap: wrap;
+    }
+
+    &_item {
+      width: calc(100% / 6);
+      padding: 0.5rem;
+
+      text-align: center;
+
+      background-color: #008966;
+
+      transition: 0.5s;
+
+      @include media(800px) {
+        width: calc(100% / 3);
+      }
+
+      @include media(500px) {
+        width: 50%;
+      }
+
+      &.active {
+        background-color: #00bc8c;
+      }
+    }
+  }
+}
+
