@@ -23,10 +23,10 @@ const playAudio = (src) => {
 const FilmsProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [success, setSuccess] = useState(false);
+  const [isWin, setIsWin] = useState(false);
   const [isGame, setIsGame] = useState(false);
   const [score, setScore] = useState(0);
   const [roundScore, setRoundScore] = useState(5);
-  // eslint-disable-next-line no-unused-vars
   const [genre, setGenre] = useState(0);
   const [currentFilms, setCurrentFilms] = useState([]);
   const [questionFilm, setQuestionFilm] = useState({});
@@ -35,6 +35,13 @@ const FilmsProvider = ({ children }) => {
   const updateCurrentFilms = () => {
     const randomFilms = films[genre].sort(() => Math.random() - 0.5).slice(0, 6);
     setCurrentFilms(randomFilms);
+  };
+
+  const newGame = () => {
+    setIsWin(false);
+    setGenre(0);
+    setScore(0);
+    updateCurrentFilms();
   };
 
   const updateFilms = async () => {
@@ -46,16 +53,15 @@ const FilmsProvider = ({ children }) => {
   const nextRound = useCallback(() => {
     setGenre((prev) => {
       if (prev >= 5) {
-        console.log('Игра закончена', score);
         playAudio(win);
-        setLoading(true);
+        setIsWin(true);
         return prev;
       }
       return prev + 1;
     });
-  }, []);
+  }, [score]);
 
-  const checkAnswer = (film) => {
+  const checkAnswer = (film, status) => {
     setDescriptionFilm(film);
     if (film.id === questionFilm.id && isGame) {
       setIsGame(false);
@@ -65,8 +71,10 @@ const FilmsProvider = ({ children }) => {
       playAudio(correct);
       return 'success';
     }
-    if (isGame) {
+    if (isGame && !status) {
       setRoundScore((prev) => prev - 1);
+    }
+    if (isGame) {
       playAudio(error);
       return 'error';
     }
@@ -109,7 +117,9 @@ const FilmsProvider = ({ children }) => {
       isGame,
       descriptionFilm,
       checkAnswer,
+      newGame,
       nextRound,
+      isWin,
     }}
     >
       { children }

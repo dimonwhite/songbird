@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { useFilmsContext } from '@/components/films-provider/films-provider';
 import Header from '@/components/header';
@@ -6,6 +6,7 @@ import CurrentQuestion from '@/components/current-question';
 import List from '@/components/list';
 import Spinner from '@/components/spinner';
 import Description from '@/components/description';
+import WinScreen from '@/components/win-screen';
 
 import './app.scss';
 
@@ -17,13 +18,14 @@ const App = () => {
     currentFilms,
     isGame,
     nextRound,
+    isWin,
   } = useFilmsContext();
 
-  useEffect(() => {
-    console.log(123);
-  }, [nextRound]);
+  if (loading) {
+    return <Spinner />;
+  }
 
-  const content = loading ? <Spinner /> : (
+  const content = isWin ? <WinScreen score={score} /> : (
     <>
       <CurrentQuestion />
 

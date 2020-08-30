@@ -15,7 +15,7 @@ const CurrentQuestion = () => {
   } = useFilmsContext();
 
   const [filmImg, setFilmImg] = useState(defaultImg);
-  const [filmTitle, setFilmTitle] = useState('******');
+  const [filmTitle, setFilmTitle] = useState('');
   const filmSoundtrack = filmsServices.getSoundtrack(soundtrack);
 
   useEffect(() => {
@@ -27,16 +27,22 @@ const CurrentQuestion = () => {
       setFilmTitle(title);
     } else {
       setFilmImg(defaultImg);
-      setFilmTitle('******');
+      setFilmTitle('');
     }
   }, [success]);
+
+  useEffect(() => {
+    if (!success) {
+      setFilmImg(defaultImg);
+    }
+  }, [filmImg]);
 
   return (
     <div className="question">
       <img src={filmImg} alt={filmTitle} className="question_img" />
 
       <div className="question_right">
-        <div className="question_title">{filmTitle}</div>
+        <div className="question_title">{filmTitle || '******'}</div>
         <div className="question_sound">
           <SoundPlayer
             src={filmSoundtrack}

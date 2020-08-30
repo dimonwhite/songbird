@@ -14,7 +14,12 @@ const Description = () => {
   } = useFilmsContext();
 
   useEffect(() => {
-    setImg('');
+    if (!film.id) {
+      setImg('');
+    }
+  }, [film]);
+
+  useEffect(() => {
     if (film.img) {
       filmsServices.getImage(film.img)
         .then((src) => {
@@ -22,6 +27,12 @@ const Description = () => {
         });
     }
   }, [film]);
+
+  useEffect(() => {
+    if (!film.img) {
+      setImg('');
+    }
+  }, [img]);
 
   if (!img) {
     return (

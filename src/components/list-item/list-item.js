@@ -8,8 +8,8 @@ const ListItem = ({ film }) => {
   const { checkAnswer } = useFilmsContext();
 
   const clickHandler = () => {
+    const status = checkAnswer(film, statusClass);
     setStatusClass((prev) => {
-      const status = checkAnswer(film);
       if (!prev) {
         return status;
       }

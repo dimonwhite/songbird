@@ -6,6 +6,10 @@
       background-color: transparent;
       border: 0;
       box-shadow: none;
+
+      &:focus {
+        outline: 0;
+      }
     }
 
     &_time {
