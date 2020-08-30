@@ -1,7 +1,13 @@
+@import '@/mixins';
+
 .app_bottom {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  @include media(880px) {
+    flex-wrap: wrap;
+  }
 }
 
 .nextBtn {

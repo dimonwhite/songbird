@@ -1,10 +1,18 @@
+@import '@/mixins';
+
 .nav {
   &_list {
     display: flex;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 
     list-style: none;
+    border-radius: 0.3rem;
+
+    @include media(800px) {
+      flex-wrap: wrap;
+    }
 
     &_item {
       width: calc(100% / 6);
@@ -16,12 +24,12 @@
 
       transition: 0.5s;
 
-      &:first-child {
-        border-radius: 0.3rem 0 0 0.3rem;
+      @include media(800px) {
+        width: calc(100% / 3);
       }
 
-      &:last-child {
-        border-radius: 0 0.3rem 0.3rem 0;
+      @include media(500px) {
+        width: 50%;
       }
 
       &.active {

@@ -1,5 +1,22 @@
+@import '@/mixins';
+
 .soundPlayer {
   .rhap {
+    &_horizontal-reverse {
+      @include media(500px) {
+        flex-direction: column !important;
+
+        .rhap_progress-section {
+          margin-bottom: 0.5rem;
+        }
+
+        .rhap_controls-section {
+          padding-right: 0;
+          margin-right: 0;
+        }
+      }
+    }
+
     &_container {
       padding: 0;
 
